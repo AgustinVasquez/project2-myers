@@ -1,4 +1,4 @@
-package com.ex.MVCS.entities;
+package com.ex.mvcs.entities;
 
 import javax.persistence.*;
 
