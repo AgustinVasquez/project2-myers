@@ -11,11 +11,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import {UserService} from "./services/user.service";
-import {AuthGuard} from "./guards/auth.guard";
+// import {AuthGuard} from "./guards/auth.guard";
 import { IntropageComponent } from './intropage/intropage.component';
 import { IntroContentComponent } from './intro-content/intro-content.component';
 import { NewUserComponent } from './new-user/new-user.component';
-import { ConfirmEqualValidatorDirective } from './directives/confirm-equal-validator.directive';
+// import { ConfirmEqualValidatorDirective } from './directives/confirm-equal-validator.directive';
 import {UserAuthService} from "./services/user-auth.service";
 import { UserInfoDisplayComponent } from './user-info-display/user-info-display.component';
 import {CreateUserAuthService} from "./services/create-user-auth.service";
@@ -30,7 +30,6 @@ import {CreateUserAuthService} from "./services/create-user-auth.service";
     IntropageComponent,
     IntroContentComponent,
     NewUserComponent,
-    ConfirmEqualValidatorDirective,
     UserInfoDisplayComponent
   ],
   imports: [

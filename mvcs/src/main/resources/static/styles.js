@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Justin Smith\1809_sept24_java\Justin_Code\MVCS\client\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Justin Smith\my_git_repos\1809_sept24_java\Justin_Code\MVCS\client\src\styles.css */"./src/styles.css");
 
 
 /***/ })

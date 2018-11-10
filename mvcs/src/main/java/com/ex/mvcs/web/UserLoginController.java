@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("userlogin-api")
+@RequestMapping("/userlogin-api")
 public class UserLoginController {
     UserLoginService service;
 
@@ -27,9 +27,10 @@ public class UserLoginController {
         return false;
     }
 
-    @PostMapping(value = "/create", consumes="application/json")
-    public Integer addNewUser(@RequestBody UserLogin uAuth){
+    @PostMapping(value = "/userlogin", consumes="application/json")
+    public boolean addNewUser(@RequestBody UserLogin uAuth){
         System.out.println(uAuth);
-        return service.addUserLogin(uAuth);
+        service.addUserLogin(uAuth);
+        return true;
     }
 }

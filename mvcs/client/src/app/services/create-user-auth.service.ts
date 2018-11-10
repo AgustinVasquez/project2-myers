@@ -7,20 +7,20 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class CreateUserAuthService {
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  //
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  // };
 
   constructor(private http: HttpClient) { }
 
-  newUserAuth(UserLogin: AuthUser): Observable<any>{
+  newUserAuth(UserLogin: AuthUser): Observable<boolean>{
     console.log(UserLogin);
-    let url = 'http://localhost:8080/userlogin-api/create';
-
-    return this.http.post<any>(url, UserLogin, this.httpOptions);
+    // let url = 'http://localhost:8080/userlogin-api/userlogin';
+    //
+    // return this.http.post<boolean>(url, UserLogin, this.httpOptions);
     // console.log('Got here newUserAuth');
     // console.log(UserLogin);
-    // return this.http.put('http://localhost:8080/userlogin-api/create', UserLogin);
+    return this.http.post<boolean>('http://localhost:8080/userlogin-api/userlogin', UserLogin);
   }
 }

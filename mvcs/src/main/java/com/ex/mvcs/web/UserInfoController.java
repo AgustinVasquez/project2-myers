@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("userlogin-api")
+@RequestMapping("userinfo-api")
 public class UserInfoController {
     UserInfoService service;
 

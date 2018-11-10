@@ -17,3 +17,10 @@ spring:
             non_contextual_creation: true
     hibernate:
       ddl-auto: update
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG

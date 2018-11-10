@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthUser} from "../domain/auth-user";
 import {Router} from "@angular/router";
-import {UserService} from "../services/user.service";
+// import {UserService} from "../services/user.service";
 import {User} from "../domain/user";
 import {UserAuthService} from "../services/user-auth.service";
 
