@@ -1,0 +1,19 @@
+spring:
+  h2:
+    console:
+      path:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://class-1809-nathaniel.cz1ooste5dz2.us-east-1.rds.amazonaws.com:5432/Project_2
+    username: Nathanielmoss
+    password: masterpassword1
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
