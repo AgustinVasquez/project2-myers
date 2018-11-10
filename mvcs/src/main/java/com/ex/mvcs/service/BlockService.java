@@ -1,7 +1,7 @@
 package com.ex.mvcs.service;
 
-import com.ex.mvcs.data.UserLoginDao;
-import com.ex.mvcs.entities.UserLogin;
+import com.ex.mvcs.data.BlockDao;
+import com.ex.mvcs.entities.Blocked;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,26 +10,27 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class UserLoginService {
-    UserLoginDao dao;
+public class BlockService {
+    BlockDao dao;
 
     @Autowired
-    public UserLoginService(UserLoginDao userLoginDao){this.dao = userLoginDao;}
+    public BlockService(BlockDao dao){this.dao = dao;}
 
     @Transactional(readOnly = true)
-    public UserLogin getUserLogin(String username){
-        Optional<UserLogin> u = dao.getUserLoginByUsername(username);
-
+    public Blocked getBlocked(int BlockID){
+        Optional<Blocked> u =dao.getBlockedByBlockId(BlockID);
         if(u.isPresent()){
             return u.get();
-        } else{
+        }else{
             return null;
         }
     }
 
     @Transactional
-    public Integer addUserLogin(UserLogin u){
-        return dao.save(u).getId();
+    public void addBlocked(Blocked b){
+        dao.save(b);
     }
-
 }
+
+
+
