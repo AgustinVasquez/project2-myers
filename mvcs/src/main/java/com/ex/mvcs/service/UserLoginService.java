@@ -1,7 +1,7 @@
-package com.ex.MVCS.service;
+package com.ex.mvcs.service;
 
-import com.ex.MVCS.data.UserLoginDao;
-import com.ex.MVCS.entities.UserLogin;
+import com.ex.mvcs.data.UserLoginDao;
+import com.ex.mvcs.entities.UserLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

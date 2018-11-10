@@ -1,7 +1,9 @@
-package com.ex.MVCS.web;
+package com.ex.mvcs.web;
 
-import com.ex.MVCS.entities.UserLogin;
-import com.ex.MVCS.service.UserLoginService;
+import com.ex.mvcs.entities.UserInfo;
+import com.ex.mvcs.entities.UserLogin;
+import com.ex.mvcs.service.UserInfoService;
+import com.ex.mvcs.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,20 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/userlogin-api")
 public class UserLoginController {
     UserLoginService service;
+    @Autowired
+    UserInfoService userInfoService;
 
     @Autowired
     UserLoginController(UserLoginService service){this.service = service;}
 
     @PostMapping(value = "/auth", consumes="application/json")
-    public boolean authenticateUser(@RequestBody UserLogin uAuth){
+    public UserInfo authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
 
         if (u != null){
             if(u.getPassword().equals(uAuth.getPassword())){
-                return true;
+                return userInfoService.getUserInfo(u.getId());
             }
         }
-        return false;
+        return null;
     }
 
     @PostMapping(value = "/userlogin", consumes="application/json")

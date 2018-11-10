@@ -13,13 +13,11 @@ import {UserAuthService} from "../services/user-auth.service";
 export class LoginFormComponent implements OnInit {
 
   @Output() loginUser : EventEmitter<User> = new EventEmitter();
-  userInfo: User = new User();
+  private userInfo: User;
 
-  constructor(private router:Router, private service:UserAuthService) { }
+  constructor(private router:Router, private service:UserAuthService) {}
 
-  ngOnInit() {
-    //this.user.postUserAuth().subscribe()
-  }
+  ngOnInit() {}
 
   newUserClick(){
     this.router.navigate(['/newuser']);
@@ -29,15 +27,12 @@ export class LoginFormComponent implements OnInit {
     if(valid){
       if(this.service.checkUserAuth(data)
         .subscribe(userInfo => this.userInfo = userInfo)){
-        this.router.navigate(['/dashboard']);
-      } else {
-        //todo invalid user info
+          if(this.userInfo !== null){
+            this.router.navigate(['/dashboard']);
+          } else {
+            //todo Invalid user info
+          }
       }
-
-      // if(data.username === 'admin' && data.password === 'admin') {
-      //   //this.user.setUserLoggedIn();
-      //   this.router.navigate(['/dashboard']);
-      // }
     }
   }
 

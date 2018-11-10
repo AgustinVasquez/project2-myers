@@ -1,7 +1,7 @@
-package com.ex.MVCS.data;
+package com.ex.mvcs.data;
 
-import com.ex.MVCS.entities.UserInfo;
-import com.ex.MVCS.entities.UserLogin;
+import com.ex.mvcs.entities.UserInfo;
+import com.ex.mvcs.entities.UserLogin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

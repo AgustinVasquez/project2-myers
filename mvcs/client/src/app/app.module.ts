@@ -18,7 +18,6 @@ import { NewUserComponent } from './new-user/new-user.component';
 // import { ConfirmEqualValidatorDirective } from './directives/confirm-equal-validator.directive';
 import {UserAuthService} from "./services/user-auth.service";
 import { UserInfoDisplayComponent } from './user-info-display/user-info-display.component';
-import {CreateUserAuthService} from "./services/create-user-auth.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import {CreateUserAuthService} from "./services/create-user-auth.service";
     FormsModule,
     RoutingModule
   ],
-  providers: [UserService, UserAuthService, CreateUserAuthService],
+  providers: [UserService, UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
