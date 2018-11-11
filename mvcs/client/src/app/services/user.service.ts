@@ -2,25 +2,19 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {User} from "../domain/user";
 import {HttpClient} from "@angular/common/http";
-import {AuthUser} from "../domain/auth-user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private isUserLoggedIn;
-  private username;
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {
-    this.isUserLoggedIn = false;
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`http://localhost:8080/userinfo-api/userinfo/${id}`);
   }
 
-  setUserLoggedIn() {
-    this.isUserLoggedIn = true;
-  }
-
-  getUserLoggedIn() {
-    return this.isUserLoggedIn
+  getAllMatches(myer_id: string): Observable<User[]> {
+    return this.http.get<User[]>(`http://localhost:8080/userinfo-api/userinfo/${myer_id}`);
   }
 }

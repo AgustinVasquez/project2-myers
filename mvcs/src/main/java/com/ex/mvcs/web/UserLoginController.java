@@ -1,7 +1,9 @@
-package com.ex.MVCS.web;
+package com.ex.mvcs.web;
 
-import com.ex.MVCS.entities.UserLogin;
-import com.ex.MVCS.service.UserLoginService;
+import com.ex.mvcs.entities.UserInfo;
+import com.ex.mvcs.entities.UserLogin;
+import com.ex.mvcs.service.UserInfoService;
+import com.ex.mvcs.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,15 +18,16 @@ public class UserLoginController {
     UserLoginController(UserLoginService service){this.service = service;}
 
     @PostMapping(value = "/auth", consumes="application/json")
-    public boolean authenticateUser(@RequestBody UserLogin uAuth){
+    public Integer authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
+        u.setPassword(u.getPassword().trim());
 
         if (u != null){
             if(u.getPassword().equals(uAuth.getPassword())){
-                return true;
+                return u.getId();
             }
         }
-        return false;
+        return null;
     }
 
     @PostMapping(value = "/userlogin", consumes="application/json")

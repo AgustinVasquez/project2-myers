@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import {UserAuthService} from "../services/user-auth.service";
+import {UserAuthService} from "../services/user-auth.service";
 import {AuthUser} from "../domain/auth-user";
 import {Router} from "@angular/router";
-// import {Observable} from "rxjs";
-import {CreateUserAuthService} from "../services/create-user-auth.service";
 
 @Component({
   selector: 'app-new-user',
@@ -12,9 +10,9 @@ import {CreateUserAuthService} from "../services/create-user-auth.service";
 })
 export class NewUserComponent implements OnInit {
   private aUser: AuthUser = new AuthUser(0, "", "", "");
-  private userInfo;
+  private isCreated: boolean;
 
-  constructor(private router: Router, private service: CreateUserAuthService) {}
+  constructor(private router: Router, private service: UserAuthService) {}
 
   ngOnInit() {
   }
@@ -25,7 +23,12 @@ export class NewUserComponent implements OnInit {
     this.aUser.password = uAuth.password;
     this.aUser.email = uAuth.email;
     this.service.newUserAuth(this.aUser)
-      .subscribe(userInfo => this.userInfo = userInfo);
-    //this.router.navigate(['']);
+      .subscribe(isCreated => this.isCreated = isCreated);
+
+    if(this.isCreated){
+      this.router.navigate(['']);
+    } else {
+
+    }
   }
 }

@@ -11,7 +11,6 @@ public class UserLogin {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-
     @Column(name="USERNAME")
     private String username;
 

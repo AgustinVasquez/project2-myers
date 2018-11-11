@@ -1,4 +1,4 @@
-package com.ex.MVCS.aspect;
+package com.ex.mvcs.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

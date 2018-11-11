@@ -1,6 +1,6 @@
-//package com.ex.MVCS.config;
+//package com.ex.mvcs.config;
 //
-//import com.ex.MVCS.aspect.UserLoginRequestInterceptor;
+//import com.ex.mvcs.aspect.UserLoginRequestInterceptor;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

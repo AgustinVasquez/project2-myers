@@ -1,4 +1,4 @@
-package com.ex.MVCS.config;
+package com.ex.mvcs.config;
 
 public class RequestContext {
 

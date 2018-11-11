@@ -1,4 +1,4 @@
-package com.ex.MVCS.config;
+package com.ex.mvcs.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
