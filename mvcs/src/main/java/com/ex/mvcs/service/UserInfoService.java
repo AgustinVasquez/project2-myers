@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -30,5 +31,16 @@ public class UserInfoService {
     @Transactional(readOnly = true)
     public void addUserInfo(UserInfo u){
         dao.save(u);
+    }
+
+    @Transactional
+    public ArrayList<UserInfo> getMatchUsers(String Myer){
+
+            Optional<ArrayList<UserInfo>> u =dao.getUserInfoByMyers(Myer);
+            if(u.isPresent()){
+                return u.get();
+            }else{
+                return null;
+            }
     }
 }
