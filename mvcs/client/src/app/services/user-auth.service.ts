@@ -11,8 +11,8 @@ export class UserAuthService {
 
   constructor(private http: HttpClient) { }
 
-  checkUserAuth(UserLogin: AuthUser): Observable<User>{
-    return this.http.post<User>('http://localhost:8080/userlogin-api/auth', UserLogin);
+  checkUserAuth(UserLogin: AuthUser): Observable<number>{
+    return this.http.post<number>('http://localhost:8080/userlogin-api/auth', UserLogin);
   }
 
   newUserAuth(UserLogin: AuthUser): Observable<boolean>{

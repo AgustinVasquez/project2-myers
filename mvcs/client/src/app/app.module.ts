@@ -18,6 +18,8 @@ import { NewUserComponent } from './new-user/new-user.component';
 // import { ConfirmEqualValidatorDirective } from './directives/confirm-equal-validator.directive';
 import {UserAuthService} from "./services/user-auth.service";
 import { UserInfoDisplayComponent } from './user-info-display/user-info-display.component';
+import {BlockedService} from "./services/blocked.service";
+import {MatchesService} from "./services/matches.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { UserInfoDisplayComponent } from './user-info-display/user-info-display.
     FormsModule,
     RoutingModule
   ],
-  providers: [UserService, UserAuthService],
+  providers: [UserService, UserAuthService, BlockedService, MatchesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

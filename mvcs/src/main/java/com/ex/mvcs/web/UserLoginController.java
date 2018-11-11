@@ -13,19 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/userlogin-api")
 public class UserLoginController {
     UserLoginService service;
-    @Autowired
-    UserInfoService userInfoService;
 
     @Autowired
     UserLoginController(UserLoginService service){this.service = service;}
 
     @PostMapping(value = "/auth", consumes="application/json")
-    public UserInfo authenticateUser(@RequestBody UserLogin uAuth){
+    public Integer authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
 
         if (u != null){
             if(u.getPassword().equals(uAuth.getPassword())){
-                return userInfoService.getUserInfo(u.getId());
+                return u.getId();
             }
         }
         return null;

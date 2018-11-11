@@ -1,8 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthUser} from "../domain/auth-user";
 import {Router} from "@angular/router";
-// import {UserService} from "../services/user.service";
-import {User} from "../domain/user";
 import {UserAuthService} from "../services/user-auth.service";
 
 @Component({
@@ -11,9 +9,6 @@ import {UserAuthService} from "../services/user-auth.service";
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-
-  @Output() loginUser : EventEmitter<User> = new EventEmitter();
-  private userInfo: User;
 
   constructor(private router:Router, private service:UserAuthService) {}
 
@@ -26,8 +21,8 @@ export class LoginFormComponent implements OnInit {
   loginClick(data: AuthUser, valid){
     if(valid){
       if(this.service.checkUserAuth(data)
-        .subscribe(userInfo => this.userInfo = userInfo)){
-          if(this.userInfo !== null){
+        .subscribe(userInfo => localStorage.setItem("userid", userInfo + ""))){
+          if(localStorage.getItem("userid") !== null){
             this.router.navigate(['/dashboard']);
           } else {
             //todo Invalid user info
