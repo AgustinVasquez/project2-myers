@@ -10,6 +10,6 @@ export class MatchesService {
   constructor(private http: HttpClient) { }
 
   getAllMatches(myer_id: string): Observable<string[]>{
-    return this.http.get<string[]>(`http://localhost:8080/matches-api/matches/?id=${myer_id}`);
+    return this.http.get<string[]>(`http://localhost:8080/matches-api/matches/${myer_id}`);
   }
 }

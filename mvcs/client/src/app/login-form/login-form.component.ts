@@ -22,7 +22,9 @@ export class LoginFormComponent implements OnInit {
     if(valid){
       if(this.service.checkUserAuth(data)
         .subscribe(userInfo => localStorage.setItem("userid", userInfo + ""))){
-          if(localStorage.getItem("userid") !== null){
+          console.log(localStorage.getItem("userid"));
+          if(localStorage.getItem("userid") !== undefined ||
+            localStorage.getItem("userid") !== null){
             this.router.navigate(['/dashboard']);
           } else {
             //todo Invalid user info

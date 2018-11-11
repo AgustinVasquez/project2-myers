@@ -8,8 +8,7 @@ public class UserInfo {
 
   @Id
   @Column(name="INFO_ID")
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private long infoId;
+  private int infoId;
 
   @Column(name="FIRST_NAME")
   private String firstName;
@@ -27,14 +26,14 @@ public class UserInfo {
   private String myers;
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "USER_ID")
+  @MapsId
   private UserLogin userId;
 
-  public long getInfoId() {
+  public int getInfoId() {
     return infoId;
   }
 
-  public void setInfoId(long infoId) {
+  public void setInfoId(int infoId) {
     this.infoId = infoId;
   }
 

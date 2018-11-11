@@ -11,10 +11,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(`http://localhost:8080/userinfo-api/userinfo/?id=${id}`);
+    return this.http.get<User>(`http://localhost:8080/userinfo-api/userinfo/${id}`);
   }
 
   getAllMatches(myer_id: string): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:8080/userinfo-api/userinfo/?id=${myer_id}`);
+    return this.http.get<User[]>(`http://localhost:8080/userinfo-api/userinfo/${myer_id}`);
   }
 }

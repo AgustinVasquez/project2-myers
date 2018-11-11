@@ -1,7 +1,6 @@
 package com.ex.mvcs.web;
 
 import com.ex.mvcs.entities.UserInfo;
-import com.ex.mvcs.entities.UserLogin;
 import com.ex.mvcs.service.UserInfoService;
 import com.ex.mvcs.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class UserInfoController {
     @Autowired
     public UserInfoController(UserInfoService service){this.service = service;}
 
-    @PostMapping(value = "/userinfo/{id}")
+    @GetMapping(value = "/userinfo/{id}")
     public UserInfo getUserById(@PathVariable Integer id){
         return service.getUserInfo(id);
     }

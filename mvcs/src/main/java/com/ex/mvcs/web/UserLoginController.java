@@ -20,6 +20,7 @@ public class UserLoginController {
     @PostMapping(value = "/auth", consumes="application/json")
     public Integer authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
+        u.setPassword(u.getPassword().trim());
 
         if (u != null){
             if(u.getPassword().equals(uAuth.getPassword())){

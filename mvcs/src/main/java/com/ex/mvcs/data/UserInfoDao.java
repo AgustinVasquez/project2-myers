@@ -9,5 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface UserInfoDao extends JpaRepository<UserInfo, Integer> {
-    public Optional<UserInfo> getUserInfoByUserId(Integer id);
 }
