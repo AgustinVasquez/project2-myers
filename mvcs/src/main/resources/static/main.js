@@ -155,7 +155,8 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-                _routers_routing_module__WEBPACK_IMPORTED_MODULE_3__["RoutingModule"]
+                _routers_routing_module__WEBPACK_IMPORTED_MODULE_3__["RoutingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]
             ],
             providers: [_services_user_service__WEBPACK_IMPORTED_MODULE_10__["UserService"], _services_user_auth_service__WEBPACK_IMPORTED_MODULE_14__["UserAuthService"], _services_blocked_service__WEBPACK_IMPORTED_MODULE_16__["BlockedService"], _services_matches_service__WEBPACK_IMPORTED_MODULE_17__["MatchesService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -175,7 +176,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".info-holder{\r\n  padding-top: 70px;\r\n}\r\n"
 
 /***/ }),
 
@@ -186,7 +187,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  <app-user-info-display></app-user-info-display>\n  <a routerLink=\"/\">Go Back</a>\n</p>\n"
+module.exports = "<p class=\"info-holder\">\n  <app-user-info-display></app-user-info-display>\n  <a routerLink=\"/\">Go Back</a>\n</p>\n"
 
 /***/ }),
 
@@ -252,6 +253,32 @@ var AuthUser = /** @class */ (function () {
         this.email = email;
     }
     return AuthUser;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/domain/user.ts":
+/*!********************************!*\
+  !*** ./src/app/domain/user.ts ***!
+  \********************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User(infoId, firstName, lastName, bio, photo, myers) {
+        this.infoId = infoId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bio = bio;
+        this.photo = photo;
+        this.myers = myers;
+    }
+    return User;
 }());
 
 
@@ -812,6 +839,9 @@ var MatchesService = /** @class */ (function () {
     MatchesService.prototype.getAllMatches = function (myer_id) {
         return this.http.get("http://localhost:8080/matches-api/matches/" + myer_id);
     };
+    MatchesService.prototype.getAllMyerTypes = function () {
+        return this.http.get("http://localhost:8080/matches-api/myertypes");
+    };
     MatchesService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -904,6 +934,9 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getAllMatches = function (myer_id) {
         return this.http.get("http://localhost:8080/userinfo-api/userinfo/" + myer_id);
     };
+    UserService.prototype.saveUserInfo = function (user) {
+        return this.http.put('http://localhost:8080/userinfo-api/userinfo', user);
+    };
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -935,7 +968,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  user-info-display works!\n</p>\n"
+module.exports = "<div class=\"container\">\n  <form class=\"lgForm\" #f=\"ngForm\" novalidate>\n    <div>\n      <div class=\"image\">\n        Photo = {{user.photo}}\n      </div>\n      <div class=\"image-edit-input\" *ngIf=\"canEdit\" [ngModel]>\n        <input type=\"text\" name=\"photo\">\n      </div>\n    </div>\n    <div>\n      <div>\n        <div class=\"first-name\">\n          First Name: {{user.firstName}}\n        </div>\n        <div class=\"first-name-input\" *ngIf=\"canEdit\">\n          <input type=\"text\" name=\"firstName\" [(ngModel)]=\"user.firstName\" [ngModel]>\n        </div>\n      </div>\n      <div>\n        <div class=\"last-name\">\n          Last Name: {{user.lastName}}\n        </div>\n        <div class=\"last-name-input\" *ngIf=\"canEdit\">\n          <input type=\"text\" name=\"lastName\" [(ngModel)]=\"user.lastName\" [ngModel]>\n        </div>\n      </div>\n      <div>\n        <div class=\"bio\">\n          Bio: {{user.bio}}\n        </div>\n        <div class=\"bio-input\" *ngIf=\"canEdit\">\n          <input type=\"text\" maxlength=\"255\" name=\"bio\" [(ngModel)]=\"user.bio\" [ngModel]>\n        </div>\n      </div>\n      <div>\n        <div class=\"myers\">\n        </div>\n        <div class=\"myers-dropdown\" *ngIf=\"canEdit\">\n          <form [formGroup]=\"myer_form\">\n            <select formControlName=\"myer_control\" name=\"myers\" [ngModel] required>\n              <option *ngFor=\"let type of myer_types\" [value]=\"type\">\n                {{type}}\n              </option>\n            </select>\n          </form>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"!canEdit\">\n      <button type=\"button\" (click)=\"canEditUserInfoClick()\">Edit profile information</button>\n    </div>\n    <div *ngIf=\"canEdit\">\n      <button type=\"button\"\n              [disabled]=\"!f.valid\"\n              (click)=\"updateUserInfoClick(f.value)\">\n        Update profile information</button>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -950,10 +983,12 @@ module.exports = "<p>\n  user-info-display works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserInfoDisplayComponent", function() { return UserInfoDisplayComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _routers_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routers/routing.module */ "./src/app/routers/routing.module.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_matches_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/matches.service */ "./src/app/services/matches.service.ts");
-/* harmony import */ var _services_blocked_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/blocked.service */ "./src/app/services/blocked.service.ts");
+/* harmony import */ var _domain_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../domain/user */ "./src/app/domain/user.ts");
+/* harmony import */ var _routers_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../routers/routing.module */ "./src/app/routers/routing.module.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_matches_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/matches.service */ "./src/app/services/matches.service.ts");
+/* harmony import */ var _services_blocked_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/blocked.service */ "./src/app/services/blocked.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -968,26 +1003,88 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var UserInfoDisplayComponent = /** @class */ (function () {
-    function UserInfoDisplayComponent(router, uService, mService, bService) {
+    function UserInfoDisplayComponent(router, uService, mService, bService, fb) {
         this.router = router;
         this.uService = uService;
         this.mService = mService;
         this.bService = bService;
+        this.fb = fb;
+        this.user = new _domain_user__WEBPACK_IMPORTED_MODULE_1__["User"](0, "", "", "", "", "");
+        this.canEdit = false;
     }
     UserInfoDisplayComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.uService.getUser(parseInt(localStorage.getItem('userid')))
-            .subscribe(function (user) { return _this.user = user; });
+        this.uService.getUser(parseInt(localStorage.getItem("userid")))
+            .subscribe(function (user) {
+            console.log(user);
+            if (user === null) {
+                console.log('the user is null');
+            }
+            else {
+                _this.user.photo = user.photo;
+                _this.user.firstName = user.firstName;
+                _this.user.lastName = user.lastName;
+                _this.user.bio = user.bio;
+                _this.user.myers = user.myers;
+                _this.updateUserInfo();
+            }
+        });
+        this.mService.getAllMyerTypes()
+            .subscribe(function (myer_types) { return _this.myer_types = myer_types; });
     };
+    UserInfoDisplayComponent.prototype.updateUserInfo = function () {
+        var _this = this;
+        this.mService.getAllMatches(this.user.myers)
+            .subscribe(function (matches) { return _this.myer_Matches.MatchArray = matches; });
+        this.bService.getAllBlocked(this.user.infoId)
+            .subscribe(function (blocked) { return _this.blocked.BlockedArray = blocked; });
+        this.uService.getAllMatches(this.user.myers)
+            .subscribe(function (matched_Users) { return _this.matched_Users = matched_Users; });
+        this.filterBlockedUsers();
+    };
+    UserInfoDisplayComponent.prototype.filterBlockedUsers = function () {
+        var _this = this;
+        this.matched_Users.forEach(function (user) {
+            if (_this.blocked.BlockedArray.includes(user.infoId)) {
+                _this.arrayindex = _this.matched_Users.indexOf(user);
+                if (_this.arrayindex !== -1) {
+                    _this.matched_Users.splice(_this.arrayindex, 1);
+                }
+            }
+        });
+    };
+    UserInfoDisplayComponent.prototype.canEditUserInfoClick = function () {
+        this.canEdit = true;
+        this.myer_form = this.fb.group({
+            myer_control: this.user.myers
+        });
+    };
+    UserInfoDisplayComponent.prototype.updateUserInfoClick = function (userInfo) {
+        this.user.firstName = userInfo.firstName;
+        this.user.lastName = userInfo.lastName;
+        this.user.bio = userInfo.bio;
+        this.user.myers = userInfo.myers;
+        this.user.photo = userInfo.photo;
+        this.uService.saveUserInfo(this.user).subscribe();
+        this.updateUserInfo();
+        this.canEdit = false;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _domain_user__WEBPACK_IMPORTED_MODULE_1__["User"])
+    ], UserInfoDisplayComponent.prototype, "user", void 0);
     UserInfoDisplayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-user-info-display',
             template: __webpack_require__(/*! ./user-info-display.component.html */ "./src/app/user-info-display/user-info-display.component.html"),
             styles: [__webpack_require__(/*! ./user-info-display.component.css */ "./src/app/user-info-display/user-info-display.component.css")]
         }),
-        __metadata("design:paramtypes", [_routers_routing_module__WEBPACK_IMPORTED_MODULE_1__["RoutingModule"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
-            _services_matches_service__WEBPACK_IMPORTED_MODULE_3__["MatchesService"], _services_blocked_service__WEBPACK_IMPORTED_MODULE_4__["BlockedService"]])
+        __metadata("design:paramtypes", [_routers_routing_module__WEBPACK_IMPORTED_MODULE_2__["RoutingModule"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _services_matches_service__WEBPACK_IMPORTED_MODULE_4__["MatchesService"], _services_blocked_service__WEBPACK_IMPORTED_MODULE_5__["BlockedService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
     ], UserInfoDisplayComponent);
     return UserInfoDisplayComponent;
 }());

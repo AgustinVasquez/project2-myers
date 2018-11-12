@@ -17,4 +17,8 @@ export class UserService {
   getAllMatches(myer_id: string): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:8080/userinfo-api/userinfo/${myer_id}`);
   }
+
+  saveUserInfo(user: User): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/userinfo-api/userinfo', user);
+  }
 }
