@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface MatchDao extends JpaRepository<Matches,Integer>{
-    public Optional<Matches> getMatchesByMyer_id(String Myer);
+    public Optional<Matches> getMatchesByMyerkey(String myerkey);
 }

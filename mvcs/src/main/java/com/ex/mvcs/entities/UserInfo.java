@@ -10,6 +10,7 @@ public class UserInfo {
   @Column(name="INFO_ID")
   private int infoId;
 
+
   @Column(name="FIRST_NAME")
   private String firstName;
 

@@ -14,14 +14,14 @@ import java.util.Optional;
 @Transactional
 public class MatchService {
 
-    MatchDao dao;
+    MatchDao matchDao;
 
     @Autowired
-    public MatchService(MatchDao dao){this.dao = dao;}
+    public MatchService(MatchDao matchDao){this.matchDao = matchDao;}
 
     @Transactional(readOnly = true)
-    public Matches getMatches(String Myer){
-        Optional<Matches> u = dao.getMatchesByMyer_id(Myer);
+    public Matches getMatches(String myer_id){
+        Optional<Matches> u = matchDao.getMatchesByMyerkey(myer_id);
 
         if(u.isPresent()){
             return u.get();

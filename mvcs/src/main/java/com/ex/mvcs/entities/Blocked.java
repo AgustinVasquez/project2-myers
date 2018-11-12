@@ -9,17 +9,17 @@ public class Blocked {
     @Id
     @Column(name="ID")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int BlockId;
+    private int blockId;
 
     @Column(name="blocked")
     private ArrayList<Integer> BlockedArray;
 
     public int getBlockId() {
-        return BlockId;
+        return blockId;
     }
 
     public void setBlockId(int blockId) {
-        BlockId = blockId;
+        blockId = blockId;
     }
 
     public ArrayList<Integer> getBlockedArray() {
@@ -42,7 +42,7 @@ public class Blocked {
 
     @Override
     public String toString() {
-        return "User number: " + BlockId +
+        return "User number: " + blockId +
                 " Has Blocked Users: " + BlockedArray;
     }
 }
