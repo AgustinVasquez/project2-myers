@@ -9,6 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ *
+ * @Author:JustinSmith
+ * @Author:AgustinVasquez
+ *
+ */
 @Service
 @Transactional
 public class UserInfoService {

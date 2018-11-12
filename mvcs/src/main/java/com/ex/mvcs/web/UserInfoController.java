@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @Author:JustinSmith
+ *
+ */
 @RestController
 @RequestMapping("userinfo-api")
 public class UserInfoController {

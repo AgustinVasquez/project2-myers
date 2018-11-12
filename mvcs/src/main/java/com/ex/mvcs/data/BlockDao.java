@@ -5,6 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Repository
 public interface BlockDao extends JpaRepository<Blocked,Integer>{
     public Optional<Blocked> getBlockedByBlockId(int blockId);

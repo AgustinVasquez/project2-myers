@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @Author:JustinSmith
+ *
+ */
 @RestController
 @RequestMapping("/userlogin-api")
 public class UserLoginController {
