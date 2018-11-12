@@ -5,7 +5,7 @@
         Photo = {{user.photo}}
       </div>
       <div class="image-edit-input" *ngIf="canEdit" [ngModel]>
-        <input type="text" name="photo">
+        <input type = "file" name = "photo" (change) = "onSelectFile($event)" [(ngModel)]="user.photo" [ngModel]>
       </div>
     </div>
     <div>
