@@ -2,7 +2,11 @@ package com.ex.mvcs.entities;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Entity
 @Table(name="text_chat")
 public class Message {

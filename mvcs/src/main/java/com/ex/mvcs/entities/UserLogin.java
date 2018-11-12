@@ -2,6 +2,11 @@ package com.ex.mvcs.entities;
 
 import javax.persistence.*;
 
+/**
+ *
+ * @Author:Nathaniel Moss
+ *
+ */
 @Entity
 @Table(name="USER_LOGIN")
 public class UserLogin {

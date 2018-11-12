@@ -1,5 +1,10 @@
 package com.ex.mvcs.config;
 
+/**
+ *
+ * @Author:JustinSmith
+ *
+ */
 public class RequestContext {
 
     private static final ThreadLocal<RequestContext> CONTEXT = new ThreadLocal<>();

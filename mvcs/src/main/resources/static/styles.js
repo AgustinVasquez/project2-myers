@@ -542,6 +542,7 @@ if(false) {}
 module.exports = __webpack_require__(/*! C:\Users\Fatmata Bundu Conteh\Desktop\git_here\project2-myers\mvcs\client\src\styles.css */"./src/styles.css");
 
 
+
 /***/ })
 
 },[[2,"runtime"]]]);

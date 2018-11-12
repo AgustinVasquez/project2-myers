@@ -1,15 +1,13 @@
 package com.ex.mvcs.web;
 
-
-import com.ex.mvcs.entities.UserInfo;
 import com.ex.mvcs.entities.UserLogin;
-import com.ex.mvcs.service.UserInfoService;
 import com.ex.mvcs.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-
+/**
+ * @Author:JustinSmith
+ */
 @RestController
 @RequestMapping("/userlogin-api")
 public class UserLoginController {
@@ -18,12 +16,17 @@ public class UserLoginController {
     @Autowired
     UserLoginController(UserLoginService service){this.service = service;}
 
-    @PostMapping(value = "/auth", consumes="application/json")
+    /**
+     * @Author Justin Smith
+     * @param UserLogin uAuth
+     * @return user_id | null
+     */
+    @PostMapping(value = "/auth")
     public Integer authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
-        u.setPassword(u.getPassword().trim());
 
         if (u != null){
+            u.setPassword(u.getPassword().trim());
             if(u.getPassword().equals(uAuth.getPassword())){
                 return u.getId();
             }
@@ -31,10 +34,13 @@ public class UserLoginController {
         return null;
     }
 
-    @PostMapping(value = "/userlogin", consumes="application/json")
-    public boolean addNewUser(@RequestBody UserLogin uAuth){
-        System.out.println(uAuth);
-        service.addUserLogin(uAuth);
-        return true;
+    /**
+     * @Author Justin Smith
+     * @param UserLogin uAuth
+     * @return user_id
+     */
+    @PostMapping(value = "/userlogin")
+    public Integer addNewUser(@RequestBody UserLogin uAuth){
+        return service.addUserLogin(uAuth);
     }
 }

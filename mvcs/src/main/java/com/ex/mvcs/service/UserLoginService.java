@@ -8,6 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+
+/**
+ *
+ * @Author:JustinSmith
+ *
+ */
 @Service
 @Transactional
 public class UserLoginService {
