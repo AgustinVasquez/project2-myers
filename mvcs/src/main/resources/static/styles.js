@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n  /* The image used */\r\n  background: url('/assets/images/bg.jpg');\r\n\r\n  /* Full height */\r\n  height: 100%;\r\n\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-attachment: fixed;\r\n  background-size: cover;\r\n\r\n}\r\n"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Justin Smith\my_git_repos\project2-myers\mvcs\client\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Nathan\Desktop\Project_2\project2-myers\mvcs\client\src\styles.css */"./src/styles.css");
 
 
 /***/ })

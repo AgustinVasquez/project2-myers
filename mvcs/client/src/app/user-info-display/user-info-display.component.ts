@@ -23,6 +23,8 @@ export class UserInfoDisplayComponent implements OnInit {
   myer_form: FormGroup;
   private arrayindex: number;
 
+  file : File = null;
+
   constructor(private router: RoutingModule, private uService: UserService,
               private mService: MatchesService, private bService: BlockedService,
               private fb: FormBuilder) { }
@@ -87,4 +89,47 @@ export class UserInfoDisplayComponent implements OnInit {
 
     this.canEdit = false;
   }
+
+  onSelectFile(event) {
+    event.preventDefault();
+
+    //Setting this.file equal to the selected file
+    this.file = event.target.files[0];
+
+    if(this.file != null){
+      //Passing image file to UploadImage
+      this.uploadImage(this.file);
+    }
+  }//ends onSelectFile
+
+  uploadImage(file){
+
+    fetch('https://api.imgur.com/3/image',{
+      method: 'POST',
+      headers: {
+        Authorization: 'Client-ID c95aaa064b20127',
+      },
+      body: file
+    }).then(response =>{
+      console.log(response);
+      if(response.ok){
+        alert('Image Uploaded Succesfully');
+      }else{
+        alert('Image Failed to upload');
+      }
+
+      return response.json();
+    }).then(json=>{
+      console.log(json);
+
+      let url = json.data.link;
+      //alert(url);
+      //let test = json.data.deletehash;
+
+      this.user.photo = url;
+      window.open(url);
+    });
+
+  }//ends uploadImage
+
 }
