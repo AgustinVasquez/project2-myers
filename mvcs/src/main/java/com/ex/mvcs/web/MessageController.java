@@ -29,14 +29,18 @@ public class MessageController {
     public ArrayList<String> getMessages(@PathVariable int sender, @PathVariable int receiver){
         ArrayList<Message> messagesSent =service.getMessages(sender,receiver);
         ArrayList<Message> messagesReceived = service.getMessages(receiver,sender);
+        ArrayList<String> ret = new ArrayList<>();
         int i;
-//        for(i =0; i<messagesReceived.size()+messagesSent.size();i++){
-////            messagesReceived;
-////            if(messagesReceived[i].getTime>messagesSent[i].getTime){
-////
-////            }
-////        }
-        return null;
+        for(i =0; i<messagesReceived.size()+messagesSent.size();i++){
+            if(messagesReceived.get(0).getTime>messagesSent.get(0).getTime){
+                    ret.add(messagesReceived.get(0).toString());
+                    messagesReceived.remove(0);
+            }else{
+                ret.add(messagesSent.get(0).toString());
+                messagesSent.remove(0);
+            }
+        }
+        return ret;
     }
 
 }
