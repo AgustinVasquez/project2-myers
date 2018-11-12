@@ -4,6 +4,11 @@ package com.ex.mvcs.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Entity
 @Table(name="myerconnect")
 public class Matches {
