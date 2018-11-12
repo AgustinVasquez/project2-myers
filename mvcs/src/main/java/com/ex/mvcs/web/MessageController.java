@@ -32,7 +32,7 @@ public class MessageController {
         ArrayList<String> ret = new ArrayList<>();
         int i;
         for(i =0; i<messagesReceived.size()+messagesSent.size();i++){
-            if(messagesReceived.get(0).getTime.before(messagesSent.get(0).getTime)){
+            if(messagesReceived.get(0).getTime().before(messagesSent.get(0).getTime())){
                     ret.add(messagesReceived.get(0).toString());
                     messagesReceived.remove(0);
             }else{
