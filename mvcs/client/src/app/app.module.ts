@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 import {RoutingModule} from "./routers/routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -37,7 +37,8 @@ import {MatchesService} from "./services/matches.service";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    ReactiveFormsModule
   ],
   providers: [UserService, UserAuthService, BlockedService, MatchesService],
   bootstrap: [AppComponent]

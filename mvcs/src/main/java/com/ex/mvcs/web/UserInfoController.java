@@ -18,6 +18,7 @@ public class UserInfoController {
 
     @GetMapping(value = "/userinfo/{id}")
     public UserInfo getUserById(@PathVariable Integer id){
+        System.out.println("got here");
         return service.getUserInfo(id);
     }
 }

@@ -19,7 +19,6 @@ public class UserInfoService {
     @Transactional(readOnly = true)
     public UserInfo getUserInfo(Integer authId){
         Optional<UserInfo> u = dao.findById(authId);
-
         if(u.isPresent()){
             return u.get();
         } else{

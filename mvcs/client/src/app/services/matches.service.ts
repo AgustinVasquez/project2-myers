@@ -12,4 +12,8 @@ export class MatchesService {
   getAllMatches(myer_id: string): Observable<string[]>{
     return this.http.get<string[]>(`http://localhost:8080/matches-api/matches/${myer_id}`);
   }
+
+  getAllMyerTypes(): Observable<string[]>{
+    return this.http.get<string[]>("http://localhost:8080/matches-api/myertypes");
+  }
 }
