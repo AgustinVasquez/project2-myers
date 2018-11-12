@@ -1,4 +1,4 @@
-package com.ex.MVCS.web;
+package com.ex.mvcs.web;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

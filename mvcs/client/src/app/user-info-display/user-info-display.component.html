@@ -1,3 +1,60 @@
-<p>
-  user-info-display works!
-</p>
+<div class="container">
+  <form class="lgForm" #f="ngForm" novalidate>
+    <div>
+      <div class="image">
+        Photo = {{user.photo}}
+      </div>
+      <div class="image-edit-input" *ngIf="canEdit" [ngModel]>
+        <input type="text" name="photo">
+      </div>
+    </div>
+    <div>
+      <div>
+        <div class="first-name">
+          First Name: {{user.firstName}}
+        </div>
+        <div class="first-name-input" *ngIf="canEdit">
+          <input type="text" name="firstName" [(ngModel)]="user.firstName" [ngModel]>
+        </div>
+      </div>
+      <div>
+        <div class="last-name">
+          Last Name: {{user.lastName}}
+        </div>
+        <div class="last-name-input" *ngIf="canEdit">
+          <input type="text" name="lastName" [(ngModel)]="user.lastName" [ngModel]>
+        </div>
+      </div>
+      <div>
+        <div class="bio">
+          Bio: {{user.bio}}
+        </div>
+        <div class="bio-input" *ngIf="canEdit">
+          <input type="text" maxlength="255" name="bio" [(ngModel)]="user.bio" [ngModel]>
+        </div>
+      </div>
+      <div>
+        <div class="myers">
+        </div>
+        <div class="myers-dropdown" *ngIf="canEdit">
+          <form [formGroup]="myer_form">
+            <select formControlName="myer_control" name="myers" [ngModel] required>
+              <option *ngFor="let type of myer_types" [value]="type">
+                {{type}}
+              </option>
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!canEdit">
+      <button type="button" (click)="canEditUserInfoClick()">Edit profile information</button>
+    </div>
+    <div *ngIf="canEdit">
+      <button type="button"
+              [disabled]="!f.valid"
+              (click)="updateUserInfoClick(f.value)">
+        Update profile information</button>
+    </div>
+  </form>
+</div>

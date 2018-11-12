@@ -1,4 +1,4 @@
-//package com.ex.MVCS.config;
+//package com.ex.mvcs.config;
 //
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;

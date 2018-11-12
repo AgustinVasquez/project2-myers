@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {LoginFormComponent} from "../login-form/login-form.component";
+// import {LoginFormComponent} from "../login-form/login-form.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
-import {AuthGuard} from "../guards/auth.guard";
+// import {AuthGuard} from "../guards/auth.guard";
 import {IntropageComponent} from "../intropage/intropage.component";
 import {NewUserComponent} from "../new-user/new-user.component";
 

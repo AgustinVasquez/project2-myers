@@ -18,9 +18,8 @@ public class UserInfoService {
     public UserInfoService(UserInfoDao dao){this.dao = dao;}
 
     @Transactional(readOnly = true)
-    public UserInfo getUserInfo(Integer id){
-        Optional<UserInfo> u = dao.getUserInfoByUserId(id);
-
+    public UserInfo getUserInfo(Integer authId){
+        Optional<UserInfo> u = dao.findById(authId);
         if(u.isPresent()){
             return u.get();
         } else{
