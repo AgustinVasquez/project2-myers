@@ -30,12 +30,13 @@ public class MessageController {
         ArrayList<Message> messagesSent =service.getMessages(sender,receiver);
         ArrayList<Message> messagesReceived = service.getMessages(receiver,sender);
         int i;
-        for(i =0; i<messagesReceived.size()+messagesSent.size();i++){
-            messagesReceived
-            if(messagesReceived[i].getTime>messagesSent[i].getTime){
-
-            }
-        }
+//        for(i =0; i<messagesReceived.size()+messagesSent.size();i++){
+////            messagesReceived;
+////            if(messagesReceived[i].getTime>messagesSent[i].getTime){
+////
+////            }
+////        }
+        return null;
     }
 
 }
