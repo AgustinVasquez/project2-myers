@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>MVCS</name>
+	<name>mvcs</name>
 	<description>Project 2 for Justin Smith, Joseph Conteh, Agustin Vasquez, Nathaniel Moss</description>
 
 	<parent>
@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>com.ex.mvcs.MvcsApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -86,6 +87,27 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Swagger Dependencies -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging-annotations -->
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging-annotations</artifactId>
+			<version>2.1.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

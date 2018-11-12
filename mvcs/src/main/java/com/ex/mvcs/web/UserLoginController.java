@@ -5,36 +5,42 @@ import com.ex.mvcs.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-
 /**
- *
  * @Author:JustinSmith
- *
  */
 @RestController
-@RequestMapping("userlogin-api")
+@RequestMapping("/userlogin-api")
 public class UserLoginController {
     UserLoginService service;
 
     @Autowired
     UserLoginController(UserLoginService service){this.service = service;}
 
-    @PostMapping(value = "/auth", consumes="application/json")
-    public boolean authenticateUser(@RequestBody UserLogin uAuth){
+    /**
+     * @Author Justin Smith
+     * @param UserLogin uAuth
+     * @return user_id | null
+     */
+    @PostMapping(value = "/auth")
+    public Integer authenticateUser(@RequestBody UserLogin uAuth){
         UserLogin u = service.getUserLogin(uAuth.getUsername());
 
         if (u != null){
+            u.setPassword(u.getPassword().trim());
             if(u.getPassword().equals(uAuth.getPassword())){
-                return true;
+                return u.getId();
             }
         }
-        return false;
+        return null;
     }
 
-    @PostMapping(value = "/create", consumes="application/json")
+    /**
+     * @Author Justin Smith
+     * @param UserLogin uAuth
+     * @return user_id
+     */
+    @PostMapping(value = "/userlogin")
     public Integer addNewUser(@RequestBody UserLogin uAuth){
-        System.out.println(uAuth);
         return service.addUserLogin(uAuth);
     }
 }

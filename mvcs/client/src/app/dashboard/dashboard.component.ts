@@ -13,4 +13,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  socketChat(){
+    window.open("http://localhost:3000/");
+  }
+
 }

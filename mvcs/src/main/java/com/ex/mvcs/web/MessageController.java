@@ -40,7 +40,7 @@ public class MessageController {
                 messagesSent.remove(0);
             }
         }
-         return ret;
+        return ret;
     }
 
 }

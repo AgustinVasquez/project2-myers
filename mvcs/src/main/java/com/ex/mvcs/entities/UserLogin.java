@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  *
- * @Author:JustinSmith
+ * @Author:Nathaniel Moss
  *
  */
 @Entity
@@ -15,7 +15,6 @@ public class UserLogin {
     @Column(name="USER_ID")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
-
 
     @Column(name="USERNAME")
     private String username;

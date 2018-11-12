@@ -17,4 +17,5 @@ import java.util.Optional;
 public interface UserInfoDao extends JpaRepository<UserInfo, Integer> {
     public Optional<UserInfo> getUserInfoByUserId(Integer id);
     public Optional<ArrayList<UserInfo>> getUserInfoByMyers(String Myer);
+    public Optional<ArrayList<UserInfo>> getAllByMyers(String myer);
 }

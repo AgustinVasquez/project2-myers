@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
- *
  * @Author:JustinSmith
  * @Author:AgustinVasquez
- *
  */
 @Service
 @Transactional
@@ -24,9 +22,8 @@ public class UserInfoService {
     public UserInfoService(UserInfoDao dao){this.dao = dao;}
 
     @Transactional(readOnly = true)
-    public UserInfo getUserInfo(Integer id){
-        Optional<UserInfo> u = dao.getUserInfoByUserId(id);
-
+    public UserInfo getUserInfo(Integer authId){
+        Optional<UserInfo> u = dao.findById(authId);
         if(u.isPresent()){
             return u.get();
         } else{
@@ -42,7 +39,7 @@ public class UserInfoService {
     @Transactional
     public ArrayList<UserInfo> getMatchUsers(String Myer){
 
-            Optional<ArrayList<UserInfo>> u =dao.getUserInfoByMyers(Myer);
+            Optional<ArrayList<UserInfo>> u =dao.getAllByMyers(Myer);
             if(u.isPresent()){
                 return u.get();
             }else{
