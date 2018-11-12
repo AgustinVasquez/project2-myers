@@ -8,7 +8,6 @@ public class UserInfo {
 
   @Id
   @Column(name="INFO_ID")
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private long infoId;
 
   @Column(name="FIRST_NAME")
@@ -27,7 +26,7 @@ public class UserInfo {
   private String myers;
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "USER_ID")
+  @MapsId
   private UserLogin userId;
 
   public long getInfoId() {

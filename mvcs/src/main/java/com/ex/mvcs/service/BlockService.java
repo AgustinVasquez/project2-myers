@@ -11,14 +11,14 @@ import java.util.Optional;
 @Service
 @Transactional
 public class BlockService {
-    BlockDao dao;
+    BlockDao blockDao;
 
     @Autowired
-    public BlockService(BlockDao dao){this.dao = dao;}
+    public BlockService(BlockDao blockDao){this.blockDao = blockDao;}
 
     @Transactional(readOnly = true)
     public Blocked getBlocked(int BlockID){
-        Optional<Blocked> u =dao.getBlockedByBlockId(BlockID);
+        Optional<Blocked> u =blockDao.getBlockedByBlockId(BlockID);
         if(u.isPresent()){
             return u.get();
         }else{
@@ -28,7 +28,7 @@ public class BlockService {
 
     @Transactional
     public void addBlocked(Blocked b){
-        dao.save(b);
+        blockDao.save(b);
     }
 }
 

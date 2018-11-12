@@ -11,14 +11,14 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UserLoginService {
-    UserLoginDao dao;
+    UserLoginDao userLoginDao;
 
     @Autowired
-    public UserLoginService(UserLoginDao userLoginDao){this.dao = userLoginDao;}
+    public UserLoginService(UserLoginDao userLoginDao){this.userLoginDao = userLoginDao;}
 
     @Transactional(readOnly = true)
     public UserLogin getUserLogin(String username){
-        Optional<UserLogin> u = dao.getUserLoginByUsername(username);
+        Optional<UserLogin> u = userLoginDao.getUserLoginByUsername(username);
 
         if(u.isPresent()){
             return u.get();
@@ -29,7 +29,7 @@ public class UserLoginService {
 
     @Transactional
     public Integer addUserLogin(UserLogin u){
-        return dao.save(u).getId();
+        return userLoginDao.save(u).getId();
     }
 
 }

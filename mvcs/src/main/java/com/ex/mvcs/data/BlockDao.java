@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface BlockDao extends JpaRepository<Blocked,Integer>{
-    public Optional<Blocked> getBlockedByBlockId(int BlockID);
+    public Optional<Blocked> getBlockedByBlockId(int blockId);
 }

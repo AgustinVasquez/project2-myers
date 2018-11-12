@@ -8,5 +8,7 @@ public class MvcsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MvcsApplication.class, args);
+		System.out.println("New Build");
+
 	}
 }

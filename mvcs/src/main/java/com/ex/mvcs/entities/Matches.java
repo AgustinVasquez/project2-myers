@@ -5,26 +5,35 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
-@Table(name="myer_connect")
+@Table(name="myerconnect")
 public class Matches {
     @Id
-    @Column(name="myer_key")
-    private String myer_id;
+    @Column(name="myerkey")
+    private String myerkey;
 
-    @Column(name="myer_match")
+    @Column(name="myermatch")
     private ArrayList<String> MatchArray;
 
     public String getMyer_id() {
-        return myer_id;
+        return myerkey;
     }
 
     public ArrayList<String> getMatchArray() {
         return MatchArray;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Myers Type :" + myerkey +
+//                " Has Ideal Matches with: " + MatchArray;
+//    }
+
+
     @Override
     public String toString() {
-        return "Myers Type :" + myer_id +
-                " Has Ideal Matches with: " + MatchArray;
+        return "Matches{" +
+                "myerkey='" + myerkey + '\'' +
+                ", MatchArray=" + MatchArray +
+                '}';
     }
 }
