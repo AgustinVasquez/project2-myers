@@ -11,6 +11,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Service
 @Transactional
 public class MessageService {
@@ -20,8 +25,8 @@ public class MessageService {
     public MessageService(MessageDao messageDao){this.messageDao = messageDao;}
 
     @Transactional
-    public ArrayList<Message> getMessages(int sender, int receiver, Timestamp date) {
-        Optional<ArrayList<Message>> u = messageDao.getMessageBySenderAndReceiverAndTimeAfter(sender, receiver, date);
+    public ArrayList<Message> getMessages(int sender, int receiver) {
+        Optional<ArrayList<Message>> u = messageDao.getMessageBySenderAndReceiverOrderByTimeAsc(sender, receiver);
 
         if (u.isPresent()) {
             return u.get();

@@ -7,8 +7,14 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Repository
 public interface MessageDao extends JpaRepository<Message, Integer>{
-    public Optional<ArrayList<Message>> getMessageBySenderAndReceiverAndTimeAfter(int sender, int receiver, Timestamp date);
+    public Optional<ArrayList<Message>> getMessageBySenderAndReceiverOrderByTimeAsc(int sender, int receiver);
 
 }

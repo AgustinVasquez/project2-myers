@@ -1,7 +1,11 @@
 package com.ex.mvcs.entities;
 import javax.persistence.*;
 
-
+/**
+ *
+ * @Author:JustinSmith
+ *
+ */
 @Entity
 @Table(name="USER_INFO")
 public class UserInfo {

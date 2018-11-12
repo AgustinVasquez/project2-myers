@@ -190,7 +190,7 @@ module.exports = ".info-holder{\r\n  padding-top: 70px;\r\n}\r\n\r\nheader{\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"info-holder\">\r\n  <app-user-info-display></app-user-info-display>\r\n  <a routerLink=\"/\">Go Back</a>\r\n</p>\r\n"
+module.exports = "<p class=\"info-holder\">\r\n  <app-user-info-display></app-user-info-display>\r\n  <button (click)=\"socketChat()\">Socket Chat</button>\r\n  <br>\r\n  <a routerLink=\"/\">Go Back</a>\r\n</p>\r\n"
 
 /***/ }),
 
@@ -222,6 +222,9 @@ var DashboardComponent = /** @class */ (function () {
         this.user = user;
     }
     DashboardComponent.prototype.ngOnInit = function () {
+    };
+    DashboardComponent.prototype.socketChat = function () {
+        window.open("http://localhost:3000/");
     };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

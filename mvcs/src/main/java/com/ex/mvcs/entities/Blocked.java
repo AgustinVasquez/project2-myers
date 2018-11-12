@@ -3,6 +3,12 @@ package com.ex.mvcs.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 
+
+/**
+ *
+ * @Author:AgustinVasquez
+ *
+ */
 @Entity
 @Table(name="blocked")
 public class Blocked {

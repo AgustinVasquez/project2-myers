@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * @Author Justin Smith
- * Controller to handle the User Information
+ * @Author:JustinSmith
  */
 @RestController
 @RequestMapping("userinfo-api")
