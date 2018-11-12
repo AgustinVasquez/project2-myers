@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * @Author
+ */
 @Service
 @Transactional
 public class UserInfoService {
@@ -35,7 +38,7 @@ public class UserInfoService {
     @Transactional
     public ArrayList<UserInfo> getMatchUsers(String Myer){
 
-            Optional<ArrayList<UserInfo>> u =dao.getUserInfoByMyers(Myer);
+            Optional<ArrayList<UserInfo>> u =dao.getAllByMyers(Myer);
             if(u.isPresent()){
                 return u.get();
             }else{

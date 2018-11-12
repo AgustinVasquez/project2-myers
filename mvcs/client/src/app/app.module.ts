@@ -20,6 +20,7 @@ import {UserAuthService} from "./services/user-auth.service";
 import { UserInfoDisplayComponent } from './user-info-display/user-info-display.component';
 import {BlockedService} from "./services/blocked.service";
 import {MatchesService} from "./services/matches.service";
+import { MatchedUserDisplayComponent } from './matched-user-display/matched-user-display.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatchesService} from "./services/matches.service";
     IntropageComponent,
     IntroContentComponent,
     NewUserComponent,
-    UserInfoDisplayComponent
+    UserInfoDisplayComponent,
+    MatchedUserDisplayComponent
   ],
   imports: [
     BrowserModule,

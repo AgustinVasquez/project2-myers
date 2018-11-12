@@ -41,7 +41,7 @@ module.exports = "#fullPage {\r\n  display: flex;\r\n  flex-direction: column;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"fullPage\">\r\n\r\n  <app-header></app-header>\r\n\r\n  <router-outlet></router-outlet>\r\n\r\n  <app-footer></app-footer>\r\n\r\n</div>\r\n\r\n"
+module.exports = "<div id=\"fullPage\">\n\n  <app-header></app-header>\n\n  <router-outlet></router-outlet>\n\n  <app-footer></app-footer>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -109,6 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_info_display_user_info_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./user-info-display/user-info-display.component */ "./src/app/user-info-display/user-info-display.component.ts");
 /* harmony import */ var _services_blocked_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/blocked.service */ "./src/app/services/blocked.service.ts");
 /* harmony import */ var _services_matches_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/matches.service */ "./src/app/services/matches.service.ts");
+/* harmony import */ var _matched_user_display_matched_user_display_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./matched-user-display/matched-user-display.component */ "./src/app/matched-user-display/matched-user-display.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -135,6 +136,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -149,7 +151,8 @@ var AppModule = /** @class */ (function () {
                 _intropage_intropage_component__WEBPACK_IMPORTED_MODULE_11__["IntropageComponent"],
                 _intro_content_intro_content_component__WEBPACK_IMPORTED_MODULE_12__["IntroContentComponent"],
                 _new_user_new_user_component__WEBPACK_IMPORTED_MODULE_13__["NewUserComponent"],
-                _user_info_display_user_info_display_component__WEBPACK_IMPORTED_MODULE_15__["UserInfoDisplayComponent"]
+                _user_info_display_user_info_display_component__WEBPACK_IMPORTED_MODULE_15__["UserInfoDisplayComponent"],
+                _matched_user_display_matched_user_display_component__WEBPACK_IMPORTED_MODULE_18__["MatchedUserDisplayComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -303,7 +306,7 @@ module.exports = "footer{\r\n  text-align: center;\r\n  color: white;\r\n  paddi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>Footer!</footer>\r\n"
+module.exports = "<footer>Footer!</footer>\n"
 
 /***/ }),
 
@@ -495,7 +498,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-login-form></app-login-form>\r\n<app-intro-content></app-intro-content>\r\n\r\n"
+module.exports = "<app-login-form></app-login-form>\n<app-intro-content></app-intro-content>\n\n"
 
 /***/ }),
 
@@ -558,7 +561,7 @@ module.exports = ":host {\r\n  flex-grow: 1;\r\n  display: flex;\r\n  justify-co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"lgForm\" #f=\"ngForm\" novalidate>\r\n  <div class=\"input\">\r\n    <label>Username</label>\r\n    <input type=\"text\" name=\"username\" [ngModel] required>\r\n  </div>\r\n  <div class=\"input\">\r\n    <label>Password</label>\r\n    <input type=\"password\" name=\"password\" [ngModel] required>\r\n  </div>\r\n  <div class=\"input\">\r\n    <button\r\n      type=\"submit\"\r\n      [disabled]=\"!f.valid\"\r\n      (click)=\"loginClick(f.value, f.valid)\">Login</button>\r\n  </div>\r\n  <div class=\"input\">\r\n    <button\r\n      type=\"button\"\r\n      (click)=\"newUserClick()\">New User</button>\r\n  </div>\r\n</form>\r\n"
+module.exports = "<form class=\"lgForm\" #f=\"ngForm\" novalidate>\n  <div class=\"input\">\n    <label>Username</label>\n    <input type=\"text\" name=\"username\" [ngModel] required>\n  </div>\n  <div class=\"input\">\n    <label>Password</label>\n    <input type=\"password\" name=\"password\" [ngModel] required>\n  </div>\n  <div class=\"input\">\n    <button\n      type=\"submit\"\n      [disabled]=\"!f.valid\"\n      (click)=\"loginClick(f.value, f.valid)\">Login</button>\n  </div>\n  <div class=\"input\">\n    <button\n      type=\"button\"\n      (click)=\"newUserClick()\">New User</button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -626,6 +629,75 @@ var LoginFormComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/matched-user-display/matched-user-display.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/matched-user-display/matched-user-display.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/matched-user-display/matched-user-display.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/matched-user-display/matched-user-display.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div>\n    <div class=\"image\">\n      Photo = {{user.photo}}\n    </div>\n  </div>\n  <div>\n    <div>\n      <div class=\"first-name\">\n        First Name: {{user.firstName}}\n      </div>\n    </div>\n    <!--<div>-->\n      <!--<div class=\"last-name\">-->\n        <!--Last Name: {{user.lastName}}-->\n      <!--</div>-->\n    <!--</div>-->\n    <div>\n      <div class=\"bio\">\n        Bio: {{user.bio}}\n      </div>\n    </div>\n    <div>\n      <div class=\"myers\">\n        Myers: {{user.myers}}\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/matched-user-display/matched-user-display.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/matched-user-display/matched-user-display.component.ts ***!
+  \************************************************************************/
+/*! exports provided: MatchedUserDisplayComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatchedUserDisplayComponent", function() { return MatchedUserDisplayComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _domain_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../domain/user */ "./src/app/domain/user.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MatchedUserDisplayComponent = /** @class */ (function () {
+    function MatchedUserDisplayComponent() {
+    }
+    MatchedUserDisplayComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _domain_user__WEBPACK_IMPORTED_MODULE_1__["User"])
+    ], MatchedUserDisplayComponent.prototype, "user", void 0);
+    MatchedUserDisplayComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-matched-user-display',
+            template: __webpack_require__(/*! ./matched-user-display.component.html */ "./src/app/matched-user-display/matched-user-display.component.html"),
+            styles: [__webpack_require__(/*! ./matched-user-display.component.css */ "./src/app/matched-user-display/matched-user-display.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], MatchedUserDisplayComponent);
+    return MatchedUserDisplayComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/new-user/new-user.component.css":
 /*!*************************************************!*\
   !*** ./src/app/new-user/new-user.component.css ***!
@@ -644,7 +716,7 @@ module.exports = ":host {\r\n  flex-grow: 1;\r\n  display: flex;\r\n  justify-co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"lgForm\" #f=\"ngForm\" novalidate>\r\n  <div class=\"input\">\r\n    <label>Username</label>\r\n    <input type=\"text\" name=\"username\" [ngModel] required>\r\n  </div>\r\n  <div class=\"input\">\r\n    <label>Password</label>\r\n    <input type=\"password\" name=\"password\" [ngModel] required>\r\n  </div>\r\n  <div class=\"input\">\r\n    <label>Confirm Password</label>\r\n    <input type=\"password\" name=\"cPassword\" [ngModel] required>\r\n  </div>\r\n  <!--<div class=\"input\" [class.has-error]=\"password.touched && password.required\">-->\r\n    <!--<label>Password</label>-->\r\n    <!--<input type=\"password\" name=\"password\" class=\"form-control\"-->\r\n           <!--[(ngModel)]=\"user.password\"#password required>-->\r\n    <!--<span class=\"help-block\" *ngIf=\"password.touched && password.errors?.required\">-->\r\n      <!--Password is required-->\r\n    <!--</span>-->\r\n  <!--</div>-->\r\n  <!--<div class=\"input\" [class.has-error]=\"pConfirm.touched && pConfirm.required\">-->\r\n    <!--<label>Confirm password</label>-->\r\n    <!--<input type=\"password\" name=\"pConfirm\" class=\"form-control\"-->\r\n           <!--[(ngModel)]=\"user.pConfirm\"#pConfirm required>-->\r\n    <!--<span class=\"help-block\" *ngIf=\"pConfirm.touched && pConfirm.errors?.required\">-->\r\n      <!--Password is required-->\r\n    <!--</span>-->\r\n  <!--</div>-->\r\n  <div class=\"input\">\r\n    <label>Email</label>\r\n    <input type=\"text\" name=\"email\" [ngModel] required>\r\n  </div>\r\n  <div class=\"input\">\r\n    <button\r\n      type=\"submit\"\r\n      [disabled]=\"!f.valid\"\r\n      (click)=\"registerUserClick(f.value)\">Login</button>\r\n  </div>\r\n</form>\r\n"
+module.exports = "<form class=\"lgForm\" #f=\"ngForm\" novalidate>\n  <div class=\"input\">\n    <label>Username</label>\n    <input type=\"text\" name=\"username\" [ngModel] required>\n  </div>\n  <div class=\"input\">\n    <label>Password</label>\n    <input type=\"password\" name=\"password\" [ngModel] required>\n  </div>\n  <div class=\"input\">\n    <label>Confirm Password</label>\n    <input type=\"password\" name=\"cPassword\" [ngModel] required>\n  </div>\n  <!--<div class=\"input\" [class.has-error]=\"password.touched && password.required\">-->\n    <!--<label>Password</label>-->\n    <!--<input type=\"password\" name=\"password\" class=\"form-control\"-->\n           <!--[(ngModel)]=\"user.password\"#password required>-->\n    <!--<span class=\"help-block\" *ngIf=\"password.touched && password.errors?.required\">-->\n      <!--Password is required-->\n    <!--</span>-->\n  <!--</div>-->\n  <!--<div class=\"input\" [class.has-error]=\"pConfirm.touched && pConfirm.required\">-->\n    <!--<label>Confirm password</label>-->\n    <!--<input type=\"password\" name=\"pConfirm\" class=\"form-control\"-->\n           <!--[(ngModel)]=\"user.pConfirm\"#pConfirm required>-->\n    <!--<span class=\"help-block\" *ngIf=\"pConfirm.touched && pConfirm.errors?.required\">-->\n      <!--Password is required-->\n    <!--</span>-->\n  <!--</div>-->\n  <div class=\"input\">\n    <label>Email</label>\n    <input type=\"text\" name=\"email\" [ngModel] required>\n  </div>\n  <div class=\"input\">\n    <button\n      type=\"submit\"\n      [disabled]=\"!f.valid\"\n      (click)=\"registerUserClick(f.value)\">Login</button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -878,13 +950,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+/**
+ * @Author: Justin Smith
+ *  Front end services for the UserAuth
+ */
 var UserAuthService = /** @class */ (function () {
     function UserAuthService(http) {
         this.http = http;
     }
+    /**
+     * @Author: Justin Smith
+     * @param UserLogin @returns user_id | null
+     */
     UserAuthService.prototype.checkUserAuth = function (UserLogin) {
         return this.http.post('http://localhost:8080/userlogin-api/auth', UserLogin);
     };
+    /**
+     * @Author: Justin Smith
+     * @param UserLogin @returns true: created, false: exists
+     */
     UserAuthService.prototype.newUserAuth = function (UserLogin) {
         return this.http.post('http://localhost:8080/userlogin-api/userlogin', UserLogin);
     };
@@ -924,16 +1008,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+/**
+ * @Author: Justin Smith
+ *  Front end services for the User
+ */
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
     }
+    /**
+     * @author Justin Smith
+     * @param id @returns User | null
+     */
     UserService.prototype.getUser = function (id) {
         return this.http.get("http://localhost:8080/userinfo-api/userinfo/" + id);
     };
+    /**
+     * @author Justin Smith
+     * @param myer_id @returns User[] | null
+     */
     UserService.prototype.getAllMatches = function (myer_id) {
         return this.http.get("http://localhost:8080/userinfo-api/userinfo/" + myer_id);
     };
+    /**
+     * @author Justin Smith
+     * @param user @returns null
+     */
     UserService.prototype.saveUserInfo = function (user) {
         return this.http.put('http://localhost:8080/userinfo-api/userinfo', user);
     };
@@ -968,7 +1068,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <form class=\"lgForm\" #f=\"ngForm\" novalidate>\r\n    <div>\r\n      <div class=\"image\">\r\n        Photo = {{user.photo}}\r\n      </div>\r\n      <div class=\"image-edit-input\" *ngIf=\"canEdit\" [ngModel]>\r\n        <input type = \"file\" name = \"photo\" (change) = \"onSelectFile($event)\" [(ngModel)]=\"user.photo\" [ngModel]>\r\n      </div>\r\n    </div>\r\n    <div>\r\n      <div>\r\n        <div class=\"first-name\">\r\n          First Name: {{user.firstName}}\r\n        </div>\r\n        <div class=\"first-name-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" name=\"firstName\" [(ngModel)]=\"user.firstName\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"last-name\">\r\n          Last Name: {{user.lastName}}\r\n        </div>\r\n        <div class=\"last-name-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" name=\"lastName\" [(ngModel)]=\"user.lastName\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"bio\">\r\n          Bio: {{user.bio}}\r\n        </div>\r\n        <div class=\"bio-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" maxlength=\"255\" name=\"bio\" [(ngModel)]=\"user.bio\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"myers\">\r\n        </div>\r\n        <div class=\"myers-dropdown\" *ngIf=\"canEdit\">\r\n          <form [formGroup]=\"myer_form\">\r\n            <select formControlName=\"myer_control\" name=\"myers\" [ngModel] required>\r\n              <option *ngFor=\"let type of myer_types\" [value]=\"type\">\r\n                {{type}}\r\n              </option>\r\n            </select>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"!canEdit\">\r\n      <button type=\"button\" (click)=\"canEditUserInfoClick()\">Edit profile information</button>\r\n    </div>\r\n    <div *ngIf=\"canEdit\">\r\n      <button type=\"button\"\r\n              [disabled]=\"!f.valid\"\r\n              (click)=\"updateUserInfoClick(f.value)\">\r\n        Update profile information</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <form class=\"lgForm\" #f=\"ngForm\" novalidate>\r\n    <div>\r\n      <div class=\"image\">\r\n        Photo = {{user.photo}}\r\n      </div>\r\n      <div class=\"image-edit-input\" *ngIf=\"canEdit\" [ngModel]>\r\n        <input type = \"file\" name = \"photo\" (change) = \"onSelectFile($event)\" [(ngModel)]=\"user.photo\" [ngModel]>\r\n      </div>\r\n    </div>\r\n    <div>\r\n      <div>\r\n        <div class=\"first-name\">\r\n          First Name: {{user.firstName}}\r\n        </div>\r\n        <div class=\"first-name-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" name=\"firstName\" [(ngModel)]=\"user.firstName\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"last-name\">\r\n          Last Name: {{user.lastName}}\r\n        </div>\r\n        <div class=\"last-name-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" name=\"lastName\" [(ngModel)]=\"user.lastName\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"bio\">\r\n          Bio: {{user.bio}}\r\n        </div>\r\n        <div class=\"bio-input\" *ngIf=\"canEdit\">\r\n          <input type=\"text\" maxlength=\"255\" name=\"bio\" [(ngModel)]=\"user.bio\" [ngModel]>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <div class=\"myers\">\r\n        </div>\r\n        <div class=\"myers-dropdown\" *ngIf=\"canEdit\">\r\n          <form [formGroup]=\"myer_form\">\r\n            <select formControlName=\"myer_control\" name=\"myers\" [ngModel] required>\r\n              <option *ngFor=\"let type of myer_types\" [value]=\"type\">\r\n                {{type}}\r\n              </option>\r\n            </select>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"!canEdit\">\r\n      <button type=\"button\" (click)=\"canEditUserInfoClick()\">Edit profile information</button>\r\n    </div>\r\n    <div *ngIf=\"canEdit\">\r\n      <button type=\"button\"\r\n              [disabled]=\"!f.valid\"\r\n              (click)=\"updateUserInfoClick(f.value)\">\r\n        Update profile information</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n<app-matched-user-display *ngFor=\"let user of matched_Users\" [user]=\"user\"></app-matched-user-display>\r\n"
 
 /***/ }),
 
@@ -1102,8 +1202,8 @@ var UserInfoDisplayComponent = /** @class */ (function () {
         }).then(function (json) {
             console.log(json);
             var url = json.data.link;
-            alert(url);
-            var test = json.data.deletehash;
+            //alert(url);
+            //let test = json.data.deletehash;
             _this.user.photo = url;
             window.open(url);
         });
@@ -1190,7 +1290,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Nathan\Desktop\Project_2\project2-myers\mvcs\client\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Justin Smith\my_git_repos\project2-myers\mvcs\client\src\main.ts */"./src/main.ts");
 
 
 /***/ })
