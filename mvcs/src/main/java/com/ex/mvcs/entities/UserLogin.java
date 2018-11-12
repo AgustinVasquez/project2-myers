@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  *
- * @Author:JustinSmith
+ * @Author:Nathaniel Moss
  *
  */
 @Entity
