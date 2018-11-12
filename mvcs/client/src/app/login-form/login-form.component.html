@@ -10,12 +10,14 @@
   <div class="input">
     <button
       type="submit"
+      class="btn btn-primary"
       [disabled]="!f.valid"
       (click)="loginClick(f.value, f.valid)">Login</button>
   </div>
   <div class="input">
     <button
       type="button"
+      class="btn btn-primary"
       (click)="newUserClick()">New User</button>
   </div>
 </form>
