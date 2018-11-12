@@ -1,6 +1,25 @@
+<style>
+  div {
+    width: 400px;
+    border: 25px solid mediumslateblue;
+    padding: 25px;
+    margin: 25px;
+  }
+</style>
+
+
+<div>
 <p class="info-holder">
+
+<p>If you don't know your Myers-Briggs Personality Type you can go to this <a href="https://www.16personalities.com/">link</a>
+  and update you type in your User Profile</p>
+
   <app-user-info-display></app-user-info-display>
-  <button (click)="socketChat()">Socket Chat</button>
+  <button
+    (click)="socketChat()"
+  class="btn-primary">Socket Chat</button>
   <br>
-  <a routerLink="/">Go Back</a>
+  <a routerLink="/"
+  class="btn-primary">Go Back</a>
 </p>
+</div>

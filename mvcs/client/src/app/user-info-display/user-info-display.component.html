@@ -48,12 +48,13 @@
       </div>
     </div>
     <div *ngIf="!canEdit">
-      <button type="button" (click)="canEditUserInfoClick()">Edit profile information</button>
+      <button type="button" (click)="canEditUserInfoClick()" class="btn btn-primary">Edit profile information</button>
     </div>
     <div *ngIf="canEdit">
       <button type="button"
               [disabled]="!f.valid"
-              (click)="updateUserInfoClick(f.value)">
+              (click)="updateUserInfoClick(f.value)"
+               class="btn btn-primary">
         Update profile information</button>
     </div>
   </form>
